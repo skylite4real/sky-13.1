@@ -1,0 +1,561 @@
+/*///////////////////////////*/
+/*//////////////////////////*/
+/*/////////////////////////*/
+/* Choose Media of the video tab*/
+.step-1 {
+    text-align: left;
+    max-width: 800px;
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    width: fit-content;
+    margin-left: 0px !important;
+    margin-right: 0%;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 1px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+}
+
+.section-names {
+    text-align: center;
+    color: #333;
+    font-size: larger;
+    font-family: 'Arial', sans-serif;
+}
+
+.short-video-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 0px;
+}
+
+.shot-video-blue-text {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 16px !important;
+}
+
+.shot-video-blue-text:hover {
+    color: darkblue;}
+
+.short-video-upload-item {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
+
+/* General styles for display-box */
+.display-Short-video {
+    position: relative;
+    width: 100%;
+    max-width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    margin-bottom: 10px;
+    padding: 0; /* Ensure no padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    overflow: hidden;
+    align-self: flex-start; /* Align to the left */
+}
+
+.short-video-holder {
+    position: relative;
+    width: 100%;
+    max-width: 100% !important;
+    height: 100% !important;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 2px !important;
+    padding: 10px !important; /* Ensure no padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    overflow: hidden;
+    align-self: flex-start; /* Align to the left */
+}
+
+
+
+
+/* Default styling for the video container */
+
+/* 9:16 Aspect Ratio */
+.display-aspect-9-16 {
+    width: calc((400px * 9) / 16);
+    height: 400px;
+}
+
+/* 4:3 Aspect Ratio */
+.display-aspect-4-3 {
+    width: calc((400px * 4) / 3);
+    height: 400px;
+}
+
+/* 1:1 Aspect Ratio */
+.display-aspect-1-1 {
+    width: 400px;
+    height: 400px;
+}
+
+/* 2:1 Aspect Ratio */
+.display-aspect-2-1 {
+    width: calc((400px * 2) / 1);
+    height: 400px;
+}
+
+/* 21:9 Aspect Ratio */
+.display-aspect-21-9 {
+    width: calc((400px * 21) / 9);
+    height: 400px;
+}
+
+/* Default square */
+.display-Short-video {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/* Styles for the play/pause button */
+#ShortBox .video-js .vjs-big-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Ensure the control bar remains unaffected */
+#ShortBox .video-js .vjs-control-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+/* Hide big play button when video is playing */
+#ShortBox .video-js.vjs-playing .vjs-big-play-button {
+    display: none;
+}
+
+/* Make sure the control bar is always visible when video is paused */
+#ShortBox .video-js.vjs-paused .vjs-control-bar {
+    display: flex;
+}
+
+
+/* Position the close icon in the top-right corner */
+.short-video-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 10;
+}
+
+
+
+
+.choose-short-video-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #1E90FF;
+}
+
+.choose-short-video-button {
+    font-size: 24px;
+}
+
+.choose-short-video-button:hover {
+    color: #104E8B;
+}
+
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    background-color: #000;
+}
+
+
+.choose-short-upload-info {
+    font-size: 18px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #615f5f;
+    margin-left: 0px;
+}
+
+.short-info-box-scrollable-content {
+    padding: 10px !important;
+    display: none;
+    overflow-y: hidden;
+    background-color: white;
+    border: 0.5px solid #ccc !important;
+    border-radius: 15px !important;
+    margin-bottom: 10px;
+    max-height: 200px;
+    line-height: 1.4;
+    margin-left: 0px !important;
+    max-width: 800px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.info-of-short-video {
+    font-size: 14px !important;
+    font-weight: solid !important;
+    color: black;
+    margin-bottom: 1px !important;
+    margin-top: 0px !important;
+}
+
+
+
+
+.short-video-preview-button {
+    margin-top: 10px !important;
+    padding: 5px 10px;
+    margin-bottom: 10px !important;
+    margin-left: 737px !important;
+    background-color: #0078d4 !important; /* accent color */
+    color: white !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    text-align: center !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.short-video-preview-button:hover {
+    background-color: #005a9e !important; /*hover color */
+}
+
+
+
+
+/* Next Button of the video details of the media tab */
+.short-next-button-of-short-video-media-tab {
+    margin-top: 10px !important;
+    padding: 5px 10px;
+    margin-bottom: 20px !important;
+    margin-left: 767px !important;
+    background-color: #0078d4 !important; /* accent color */
+    color: white !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    text-align: center !important;
+    transition: background-color 0.3s ease !important;
+
+}
+
+.short-next-button-of-short-video-media-tab:hover {
+    background-color: #005a9e !important; /*hover color */
+}
+
+
+
+/* Responsive styles for Choose Media Content */
+
+@media (max-width: 1200px) {
+    #chooseShortContent {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .short-video-preview-button,
+    .short-next-button-of-short-video-media-tab {
+        display: inline-block;
+        float: right;
+        margin: 10px 0 0 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    #chooseShortContent {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .short-video-preview-button,
+    .short-next-button-of-short-video-media-tab {
+        display: inline-block;
+        float: right;
+        margin: 10px 0 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    #chooseShortContent {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .short-video-preview-button,
+    .short-next-button-of-short-video-media-tab {
+        display: inline-block;
+        float: right;
+        margin: 10px 0 0 10px;
+        padding: 5px 10px; /* Adjust padding to ensure buttons fit */
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+}
+
+@media (max-width: 576px) {
+    #chooseShortContent {
+        width: 100%;
+        padding: 0 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .short-video-preview-button,
+    .short-next-button-of-short-video-media-tab {
+        display: inline-block;
+        float: right;
+        margin: 10px 0 0 10px;
+        padding: 5px 10px;
+        white-space: nowrap;
+    }
+}
+
+/* Ensure the width is always lower than the content-box */
+#chooseShortContent {
+    width: 100%; /* Full width */
+    max-width: 800px; /* Max width for larger screens */
+    margin: 0 auto; /* Center align on larger screens */
+    padding: 0 !important; /* Remove padding */
+    box-sizing: border-box; /* Include padding/border within the width */
+}
+
+/* Align buttons to the right */
+.short-video-preview-button,
+.short-next-button-of-short-video-media-tab {
+    display: inline-block;
+    float: right;
+    margin: 10px 0 0 10px;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+/*///////////////////////*/
+
+.short-close-preview-button {
+    display: none; /* Initially hidden */
+    width: 100% !important;
+    padding: 10px 0 !important;
+    margin-top: 15px !important;
+    background-color: #0078d4 !important; /* Accent color */
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.short-close-preview-button:hover {
+    background-color: #005a9e !important; /* Hover color */
+}
+
+
+
+
+/* Video Preview Box Styling */
+.short-preview-box {
+    position: absolute;
+    top: 150px;
+    right: 30px;
+    width: 310px;
+    height: auto !important;
+    background-color: white;
+    padding: 20px;
+    margin-left: 0px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+/* Header for Video Preview */
+.short-preview-box h4 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Video preview container */
+.short-video-preview {
+    width: 100%;
+    height: auto;
+    width: auto;
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+
+/* Ensure the video fits perfectly in 16:9 aspect ratio */
+.short-video-preview video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Fit within the box while preserving aspect ratio */
+}
+
+/* Styles for the play/pause button */
+.short-video-preview .video-js .vjs-big-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Ensure the control bar remains unaffected */
+.short-video-preview .video-js .vjs-control-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+/* Hide big play button when video is playing */
+.short-video-preview .video-js.vjs-playing .vjs-big-play-button {
+    display: none;
+}
+
+/* Make sure the control bar is always visible when video is paused */
+.short-video-preview .video-js.vjs-paused .vjs-control-bar {
+    display: flex;
+}
+
+/* Responsive styles for mid and small screens */
+@media (max-width: 992px) {
+    .short-preview-box {
+        position: static;
+        width: 350px;
+        height: 350px;
+        max-width: none;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-left: none !important;
+
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .short-video-preview {
+        
+    }
+}
+
+@media (max-width: 768px) {
+    .short-preview-box {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        max-width: 100%; /* Ensure full width */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .short-video-preview {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-left: none !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+/* Media query to handle 576px screen size */
+@media (max-width: 576px) {
+    .short-preview-box {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        max-width: 100%; /* Ensure full width */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .short-video-preview {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+}

@@ -1,0 +1,422 @@
+/* Enhanced style for upload section */
+.upload-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+    overflow: auto;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for back arrow icon */
+.back-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.back-icon:hover {
+    color: #000000;
+}
+
+/* Additional styles to prevent interference with other content */
+body.uploading {
+    overflow: hidden;
+}
+
+/* Header */
+.video-section-header {
+    text-align: center;
+    margin-top: 10px !important;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #202124;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Tabs above the horizontal line */
+.upload-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.upload-tabs .tab {
+    margin: 0 15px;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-tabs .tab:hover {
+    color: #000;
+    background-color: #e0e0e0;
+}
+
+.upload-tabs .tab.active {
+    color: #202124; /* Normal text color in Windows 11 */
+    border-bottom: 2px solid #0078d4; /* Accent color */
+    background-color: #f3f4f6; /* Light background color */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Horizontal line below the tabs */
+.upload-divider {
+    margin: 0 auto 20px auto;
+    width: 90%;
+    border: 1px solid white;
+}
+
+/* Box below the horizontal line */
+.box-content {
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    width: calc(100% - 540px); /* Further reduced width */
+    max-width: 850px; /* Further reduced max-width */
+    height: 570px; /* Further reduced height */
+    background-color: white;
+    border-left: 0.5px solid #f3f4f6;
+    border-radius: 0px;
+    padding: 0; /* Removed padding to avoid gaps */
+    overflow-y: auto;
+}
+
+/* Hide the scrollbar */
+.box-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Content associated with each tab */
+.tab-content {
+    display: none;
+    margin-top: 10px;
+    padding: 0; /* Removed padding to avoid gaps */
+}
+
+/* Steps inside each tab for large screens */
+.steps {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5px;
+    padding-left: 20px;
+    gap: 10px;
+}
+
+/* Steps inside each tab for mid and small screens */
+@media (max-width: 992px) {
+    .steps {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 20px;
+        padding-left: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .steps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: none;
+        margin-top: 20px;
+    }
+}
+
+/* Steps inside each tab for small screens */
+@media (max-width: 768px) {
+    .upload-tabs {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .upload-tabs .tab {
+        margin: 10px 5px;
+    }
+
+    .steps {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .steps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .steps .step {
+        margin: 10px 5px;
+    }
+
+    .box-content {
+        margin-top: 30px;
+    }
+}
+
+/* Step styling */
+.steps .step {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: color 0.3s ease, border-left 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Consistent shadow width */
+    width: 150px; /* Set a fixed width for all steps */
+    text-align: center; /* Center the text within the step */
+}
+
+.steps .step:hover {
+    color: #000;
+    background-color: #f0f0f0;
+}
+
+.steps .step.active {
+    color: #202124; /* Normal text color in Windows 11 */
+    border-left: 4px solid #0078d4; /* Accent color */
+    background-color: #f3f4f6; /* Light background color */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Consistent shadow width */
+}
+
+/* Content for the steps */
+.step-content {
+    display: none;
+    margin-top: 10px;
+    padding: 0; /* Removed padding to avoid gaps */
+}
+
+/* Video Preview Box Styling */
+.preview-box,
+.post-preview-box {
+    position: absolute;
+    top: 150px;
+    right: 30px;
+    width: 310px;
+    height: 310px;
+    background-color: white;
+    padding: 20px;
+    margin-left: 0px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+/* Header for Video Preview */
+.preview-box h4,
+.post-preview-box h4 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Video preview container */
+.video-preview,
+.post-video-preview {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: white;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+
+/* Ensure the video fits perfectly in 16:9 aspect ratio */
+.video-preview video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Fit within the box while preserving aspect ratio */
+}
+
+/* Styles for the play/pause button */
+.video-preview .video-js .vjs-big-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Ensure the control bar remains unaffected */
+.video-preview .video-js .vjs-control-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+/* Hide big play button when video is playing */
+.video-preview .video-js.vjs-playing .vjs-big-play-button {
+    display: none;
+}
+
+/* Make sure the control bar is always visible when video is paused */
+.video-preview .video-js.vjs-paused .vjs-control-bar {
+    display: flex;
+}
+
+/* Media query to handle smaller screens */
+@media (max-width: 768px) {
+    .preview-box {
+        position: static;
+        width: 350px;
+        height: 350px;
+        max-width: none;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+/* General styles for large screens */
+
+/* Responsive styles for mid and small screens */
+@media (max-width: 992px) {
+    .preview-box {
+        position: static;
+        width: 350px;
+        height: 350px;
+        max-width: none;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-left: none !important;
+
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .preview-box {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        max-width: 100%; /* Ensure full width */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .video-preview {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .box-content {
+        position: static;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border-left: none !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-bottom: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+/* Media query to handle 576px screen size */
+@media (max-width: 576px) {
+    .preview-box {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        max-width: 100%; /* Ensure full width */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+
+    .video-preview {
+        width: 100%; /* Full width */
+        height: auto; /* Adjust height as needed */
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        margin: 0 !important; /* Remove all margins */
+        padding: 0 !important; /* Remove all padding */
+        box-sizing: border-box; /* Include padding/border within the width */
+    }
+}
+
+/* Close Preview Button Styling */
+.close-preview-button {
+    display: block;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    margin-top: 15px !important;
+    background-color: #0078d4 !important; /* accent color */
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center !important;
+    display: none; /* Initially hidden */
+    transition: background-color 0.3s ease !important;
+}
+
+.close-preview-button:hover {
+    background-color: #005a9e !important; /*hover color */
+}
